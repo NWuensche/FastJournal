@@ -12,4 +12,12 @@
         android:id="@+id/ab_today_title"
         android:textSize="18sp" />
 
+    <ImageButton
+        android:text="Button"
+        android:layout_width="57dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:src="@android:drawable/ic_menu_save"
+        android:background="@color/colorPrimary" />
+
 </LinearLayout>
