@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="my Title"
-        android:textColor="#ffffff"
+        android:textColor="#000000"
         android:id="@+id/ab_today_title"
         android:textSize="18sp" />
 
@@ -18,6 +18,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/button"
         android:src="@android:drawable/ic_menu_save"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorPrimary" /> <!-- Change color on click -->
 
 </LinearLayout>
