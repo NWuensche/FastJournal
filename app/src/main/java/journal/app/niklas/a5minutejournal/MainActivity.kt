@@ -3,6 +3,8 @@ package journal.app.niklas.a5minutejournal
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.ActionBar
+import android.util.Log
+import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ab_today_title.*
 import java.text.SimpleDateFormat
@@ -32,6 +34,10 @@ class MainActivity : AppCompatActivity() {
 
         val today: Date = Calendar.getInstance().time
         ab_today_title.text = SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH).format(today.time)
+    }
+
+    fun onTodaySaveButton(v: View) {
+        Log.e("click", "click")
     }
 
 }

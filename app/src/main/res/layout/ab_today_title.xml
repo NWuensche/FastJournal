@@ -12,12 +12,14 @@
         android:id="@+id/ab_today_title"
         android:textSize="18sp" />
 
+    <!-- TODO Change color on click -->
     <ImageButton
         android:text="Button"
         android:layout_width="57dp"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
+        android:id="@+id/saveTodayEntry"
         android:src="@android:drawable/ic_menu_save"
-        android:background="@color/colorPrimary" /> <!-- Change color on click -->
+        android:background="@color/colorPrimary"
+        android:onClick="onTodaySaveButton"/>
 
 </LinearLayout>
