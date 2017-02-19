@@ -10,7 +10,4 @@
         android:icon="@android:drawable/ic_menu_save"
         app:showAsAction="always" />
 
-    <!-- TODO Nutze             android:launchMode="singleInstance",
-    dann eiinfach immer neue Activitäten ohne diese immer übergebn zu müssen -->
-
 </menu>
