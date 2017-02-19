@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         // Set up the ViewPager with the sections adapter.
         mViewPager = findViewById(R.id.container) as ViewPager
         mViewPager!!.adapter = mSectionsPagerAdapter
+        mViewPager!!.currentItem++ // Today as curr Tab
 
         val tabLayout = findViewById(R.id.tabs) as TabLayout
         tabLayout.setupWithViewPager(mViewPager)
@@ -75,7 +76,8 @@ class MainActivity : AppCompatActivity() {
         val id = item.itemId
 
 
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_save_today) {
+            SaveFiles.onSaveToday(this)
             return true
         }
 
@@ -129,17 +131,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getCount(): Int {
-            // Show 3 total pages.
-            return 3
+            // Show 2 total pages.
+            return 2
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
-                0 -> return "SECTION 1"
-                1 -> return "SECTION 2"
-                2 -> return "SECTION 3"
+                0 -> return "ALL ENTRIES"
+                1 -> return "TODAY"
             }
             return null
         }
     }
+
 }
