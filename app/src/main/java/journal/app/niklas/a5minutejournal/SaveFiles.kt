@@ -2,7 +2,6 @@ package journal.app.niklas.a5minutejournal
 
 import android.content.Context
 import android.util.Log
-import android.view.View
 import journal.app.niklas.a5minutejournal.LoadFiles.getAllDateFileNames
 import java.io.FileOutputStream
 
