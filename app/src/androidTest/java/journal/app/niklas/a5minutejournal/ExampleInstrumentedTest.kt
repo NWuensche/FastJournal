@@ -16,6 +16,7 @@ import org.junit.Assert.*
  */
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
+
     @Test
     @Throws(Exception::class)
     fun useAppContext() {
@@ -24,4 +25,5 @@ class ExampleInstrumentedTest {
 
         assertEquals("journal.app.niklas.a5minutejournal", appContext.packageName)
     }
+
 }
