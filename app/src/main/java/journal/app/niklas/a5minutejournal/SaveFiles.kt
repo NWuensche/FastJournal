@@ -17,7 +17,7 @@ object SaveFiles {
     fun onSaveToday(mainActivity: MainActivity) {
         activity = mainActivity
 
-        val filename = Today.getToday().replace(" ", "_").plus(".txt")
+        val filename = Today.getTodayFileName()
         val input = getAllInput()
 
         try {

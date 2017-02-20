@@ -1,5 +1,7 @@
 package journal.app.niklas.a5minutejournal
 
+import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_today.*
 import java.io.File
 import java.io.FileInputStream
 
@@ -31,6 +33,41 @@ object LoadFiles {
         }
 
         return String(buffer)
+    }
+
+    fun loadTodaysTextFromFileToView(activity: MainActivity) {
+        if(!doesTodaysExist(activity)) { //TODO Brauch ich das überhaupt?
+            return
+        }
+
+        val lines = getTextFromFile(activity, Today.getTodayFileName()).split("\n")
+
+        fillTextViews(lines.iterator(), activity)
+    }
+
+    private fun doesTodaysExist(activity: MainActivity): Boolean {
+        return getAllDateFileNames(activity).contains(Today.getToday().replace(" ", "_").plus(".txt"))
+    }
+
+    private fun fillTextViews(lines: Iterator<String>, activity: MainActivity) {
+        activity.editText_grateful1.setText(lines.next(), TextView.BufferType.EDITABLE)
+        activity.editText_grateful2.setText(lines.next(), TextView.BufferType.EDITABLE)
+        activity.editText_grateful3.setText(lines.next(), TextView.BufferType.EDITABLE)
+        lines.next() // Empty line to seperate parts
+        activity.editText_great1.setText(lines.next(), TextView.BufferType.EDITABLE)
+        activity.editText_great2.setText(lines.next(), TextView.BufferType.EDITABLE)
+        activity.editText_great3.setText(lines.next(), TextView.BufferType.EDITABLE)
+        lines.next()
+        activity.editText_daily1.setText(lines.next(), TextView.BufferType.EDITABLE)
+        activity.editText_daily2.setText(lines.next(), TextView.BufferType.EDITABLE)
+        lines.next()
+        activity.editText_happend1.setText(lines.next(), TextView.BufferType.EDITABLE)
+        activity.editText_happend2.setText(lines.next(), TextView.BufferType.EDITABLE)
+        activity.editText_happend3.setText(lines.next(), TextView.BufferType.EDITABLE)
+        lines.next()
+        activity.editText_better1.setText(lines.next(), TextView.BufferType.EDITABLE)
+        activity.editText_better2.setText(lines.next(), TextView.BufferType.EDITABLE)
+        lines.next()
     }
 
 }

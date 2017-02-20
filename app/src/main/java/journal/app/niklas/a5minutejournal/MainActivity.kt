@@ -132,4 +132,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // Will be called after onChanged
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        LoadFiles.loadTodaysTextFromFileToView(this)
+    }
 }

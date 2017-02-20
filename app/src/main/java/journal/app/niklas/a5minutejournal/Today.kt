@@ -14,4 +14,8 @@ object Today {
         return SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH).format(today.time)
     }
 
+    fun getTodayFileName(): String {
+        return getToday().replace(" ", "_").plus(".txt")
+    }
+
 }
