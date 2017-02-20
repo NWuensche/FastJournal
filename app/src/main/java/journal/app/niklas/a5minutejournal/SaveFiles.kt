@@ -37,8 +37,10 @@ object SaveFiles {
         val grateful: String = getGrateful()
         val great: String = getGreat()
         val daily: String = getDaily()
+        val happend: String = getHappend()
+        val better: String = getBetter()
 
-        val input = "$grateful$great$daily"
+        val input = "$grateful$great$daily$happend$better"
 
         return input
     }
@@ -67,9 +69,28 @@ object SaveFiles {
         val daily1 = activity!!.editText_daily1.text.toString().plus('\n')
         val daily2 = activity!!.editText_daily2.text.toString().plus('\n')
 
-        val great = "$daily1$daily2\n"
+        val daily = "$daily1$daily2\n"
 
-        return great
+        return daily
+    }
+
+    private fun getHappend(): String {
+        val happend1 = activity!!.editText_happend1.text.toString().plus('\n')
+        val happend2 = activity!!.editText_happend2.text.toString().plus('\n')
+        val happend3 = activity!!.editText_happend3.text.toString().plus('\n')
+
+        val happend = "$happend1$happend2$happend3\n"
+
+        return happend
+    }
+
+    private fun getBetter(): String {
+        val better1 = activity!!.editText_better1.text.toString().plus('\n')
+        val better2 = activity!!.editText_better2.text.toString().plus('\n')
+
+        val better = "$better1$better2"
+
+        return better
     }
 
 }

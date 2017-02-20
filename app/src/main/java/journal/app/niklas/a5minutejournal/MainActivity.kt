@@ -80,7 +80,6 @@ class MainActivity : AppCompatActivity() {
             when(arguments.getInt(ARG_SECTION_NUMBER)) {
                 1 -> rootView = inflater!!.inflate(R.layout.fragment_all_entries, container, false)
                 2 -> rootView = inflater!!.inflate(R.layout.fragment_today, container, false)
-                else -> 2
             }
 
             return rootView
