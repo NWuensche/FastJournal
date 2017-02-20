@@ -10,14 +10,14 @@
     tools:context="journal.app.niklas.a5minutejournal.MainActivity$PlaceholderFragment">
 
     <TextView
-        android:id="@+id/section_label"
+        android:id="@+id/section_grateful_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="I am grateful for..."/>
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+        android:layout_width="match_parent" android:layout_height="wrap_content">
 
         <EditText
             android:layout_width="match_parent"
@@ -43,6 +43,215 @@
 
     </RelativeLayout>
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="12dp"
+            android:id="@+id/editText_grateful2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"/>
+
+        <TextView
+            android:text="2."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_grateful2"
+            android:layout_alignBaseline="@+id/editText_grateful2"
+            android:layout_alignBottom="@+id/editText_grateful2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="12dp"
+            android:id="@+id/editText_grateful3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"/>
+
+        <TextView
+            android:text="3."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_grateful3"
+            android:layout_alignBaseline="@+id/editText_grateful3"
+            android:layout_alignBottom="@+id/editText_grateful3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:paddingTop="30dp"
+        android:id="@+id/section_great_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This would make today great..."/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="12dp"
+            android:id="@+id/editText_great1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"/>
+
+        <TextView
+            android:text="1."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_great1"
+            android:layout_alignBaseline="@+id/editText_great1"
+            android:layout_alignBottom="@+id/editText_great1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="12dp"
+            android:id="@+id/editText_great2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"/>
+
+        <TextView
+            android:text="2."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_great2"
+            android:layout_alignBaseline="@+id/editText_great2"
+            android:layout_alignBottom="@+id/editText_great2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="12dp"
+            android:id="@+id/editText_great3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"/>
+
+        <TextView
+            android:text="3."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_great3"
+            android:layout_alignBaseline="@+id/editText_great3"
+            android:layout_alignBottom="@+id/editText_great3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:paddingTop="30dp"
+        android:id="@+id/section_daily_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily affirmation. I'm..."/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="12dp"
+            android:id="@+id/editText_daily1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"/>
+
+        <TextView
+            android:text="1."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_daily1"
+            android:layout_alignBaseline="@+id/editText_daily1"
+            android:layout_alignBottom="@+id/editText_daily1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="12dp"
+            android:id="@+id/editText_daily2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"/>
+
+        <TextView
+            android:text="2."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_daily2"
+            android:layout_alignBaseline="@+id/editText_daily2"
+            android:layout_alignBottom="@+id/editText_daily2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+
+
+    <!-- TODO Texte minimal abändern, damit nicht 1:1 5 Minute Journal -->
     <!-- TODO Wenn ich EditText ändere, und dann zu all Enties gehe, dann geht tastatur nicht aus -->
 
 
