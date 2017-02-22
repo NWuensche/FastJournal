@@ -14,6 +14,8 @@ import android.view.*
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.entry_item.*
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import kotlinx.android.synthetic.main.fragment_tabs.view.*
@@ -90,6 +92,7 @@ class MainActivity : AppCompatActivity() {
                 val textView = view as TextView
                 val text = textView.text
                 Log.e("test", "button with Name $text pressed!")
+                activity.container.currentItem++// Today as curr Tab
             }
         }
 
