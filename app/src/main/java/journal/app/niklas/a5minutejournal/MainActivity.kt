@@ -86,13 +86,22 @@ class MainActivity : AppCompatActivity() {
     class PlaceholderFragment : Fragment() {
 
         fun loadAllEntries() {
-            val files: List<String> = LoadFiles.getAllDateFileNames(activity)
+            val files: List<String> = LoadFiles.getAllDatesDisplayName(activity)
             all_entries_view.adapter = ArrayAdapter(activity, R.layout.entry_item, files)
+
+
             all_entries_view.setOnItemClickListener { adapterView, view, i, l ->
                 val textView = view as TextView
-                val text = textView.text
-                Log.e("test", "button with Name $text pressed!")
+                val date: String = textView.text.toString()
+
+                LoadFiles.loadSomeDayTextFromFileToView(activity, date)
+
+                FileName.setCurrentFileDate(date)
                 activity.container.currentItem++// Today as curr Tab
+
+                Design.setEditTabTitle(activity) // Tab Title
+
+                //TODO Change Tab Name
             }
         }
 
@@ -161,7 +170,7 @@ class MainActivity : AppCompatActivity() {
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
                 0 -> return "ALL ENTRIES"
-                1 -> return "TODAY"
+                1 -> return "TODAY" // TODO Pass auf, wenn heutiger Tag genommen wird, wieder Today statt Tag anzuzeigen.
             }
             return null
         }

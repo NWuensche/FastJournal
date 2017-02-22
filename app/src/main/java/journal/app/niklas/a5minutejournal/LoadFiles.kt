@@ -11,20 +11,12 @@ import java.io.FileInputStream
  */
 object LoadFiles {
 
-    fun getAllDateFileNames(activity: Activity): List<String> {
-        return activity.filesDir
-                .listFiles()
-                .map { it.name }
-                .filter { Character.isDigit(it[0]) }
-                .sorted()
-        // 9 Feb -> 09 February
-    }
-
-    fun getTextFromFile(activity: Activity, fileName: String): String {
+    fun getTextFromFile(activity: Activity, date: String): String {
         var buffer = ByteArray(0)
+        val dateFileName: String = FileName.convertDateToFileName(date)
 
         try {
-            val file = File(activity.baseContext.filesDir, fileName)
+            val file = File(activity.baseContext.filesDir, dateFileName)
             buffer = ByteArray(file.length().toInt())
 
             val inputStream: FileInputStream = FileInputStream(file)
@@ -45,12 +37,29 @@ object LoadFiles {
 
         val lines = getTextFromFile(activity, Today.getTodayFileName()).split("\n")
 
+        if(lines.size >= 13 ) {
+            fillTextViews(lines.iterator(), activity)//TODO Besser
+        }
+    }
+
+    fun loadSomeDayTextFromFileToView(activity: Activity, date: String) {
+        if(!doesDayExist(activity, date)) {
+            return
+        }
+
+        val lines = getTextFromFile(activity, date).split("\n")
+
         fillTextViews(lines.iterator(), activity)
     }
 
     private fun doesTodaysExist(activity: Activity): Boolean {
-        return getAllDateFileNames(activity).contains(Today.getToday().replace(" ", "_").plus(".txt"))
+        return getAllDatesDisplayName(activity).contains(Today.getDate())
     }
+
+    private fun doesDayExist(activity: Activity, date: String): Boolean {
+        return getAllDatesDisplayName(activity).contains(date)
+    }
+
 
     private fun fillTextViews(lines: Iterator<String>, activity: Activity) {
         activity.editText_grateful1.setText(lines.next(), TextView.BufferType.EDITABLE)
@@ -71,6 +80,16 @@ object LoadFiles {
         activity.editText_better1.setText(lines.next(), TextView.BufferType.EDITABLE)
         activity.editText_better2.setText(lines.next(), TextView.BufferType.EDITABLE)
         lines.next()
+    }
+
+    fun getAllDatesDisplayName(activity: Activity): List<String> {
+        return activity.filesDir
+                .listFiles()
+                .map { it.name } // 9 Feb -> 09 February
+                .filter { Character.isDigit(it[0]) }
+                .map { FileName.convertFileNameToDate(it) }
+                .sorted()
+                .reversed()
     }
 
 }

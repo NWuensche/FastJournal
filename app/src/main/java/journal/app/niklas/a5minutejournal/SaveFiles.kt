@@ -3,7 +3,6 @@ package journal.app.niklas.a5minutejournal
 import android.app.Activity
 import android.content.Context
 import android.util.Log
-import journal.app.niklas.a5minutejournal.LoadFiles.getAllDateFileNames
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import java.io.FileOutputStream
 
@@ -30,8 +29,10 @@ object SaveFiles {
             e.printStackTrace()
         }
 
-        getAllDateFileNames(activity!!)
+        LoadFiles.getAllDatesDisplayName(activity!!)
                 .forEach { Log.e("test", "Filename: $it:\n".plus(LoadFiles.getTextFromFile(activity!!, it))) }
+
+        //TODO Reload List, damit Today auch drin ist.
     }
 
     private fun getAllInput(): String {

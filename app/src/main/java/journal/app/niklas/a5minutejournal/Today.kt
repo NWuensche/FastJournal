@@ -9,13 +9,13 @@ import java.util.Date
  */
 object Today {
 
-    fun getToday(): String {
+    fun getDate(): String {
         val today: Date = Calendar.getInstance().time
         return SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH).format(today.time)
     }
 
     fun getTodayFileName(): String {
-        return getToday().replace(" ", "_").plus(".txt")
+        return getDate().replace(" ", "_").plus(".txt")
     }
 
 }
