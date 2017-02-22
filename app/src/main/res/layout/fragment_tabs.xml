@@ -46,7 +46,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="1."
@@ -56,7 +57,8 @@
                         android:layout_alignBaseline="@+id/editText_grateful1"
                         android:layout_alignBottom="@+id/editText_grateful1"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -73,7 +75,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="2."
@@ -83,7 +86,8 @@
                         android:layout_alignBaseline="@+id/editText_grateful2"
                         android:layout_alignBottom="@+id/editText_grateful2"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -100,7 +104,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="3."
@@ -110,7 +115,8 @@
                         android:layout_alignBaseline="@+id/editText_grateful3"
                         android:layout_alignBottom="@+id/editText_grateful3"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -121,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:text="This would make today great..."
                     android:fontFamily="serif"
-                    android:textSize="18dp"/>
+                    android:textSize="18dp" />
 
 
                 <RelativeLayout
@@ -137,7 +143,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="1."
@@ -147,7 +154,8 @@
                         android:layout_alignBaseline="@+id/editText_great1"
                         android:layout_alignBottom="@+id/editText_great1"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -164,7 +172,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="2."
@@ -174,7 +183,8 @@
                         android:layout_alignBaseline="@+id/editText_great2"
                         android:layout_alignBottom="@+id/editText_great2"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -192,7 +202,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="3."
@@ -202,7 +213,8 @@
                         android:layout_alignBaseline="@+id/editText_great3"
                         android:layout_alignBottom="@+id/editText_great3"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -229,7 +241,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="1."
@@ -239,7 +252,8 @@
                         android:layout_alignBaseline="@+id/editText_daily1"
                         android:layout_alignBottom="@+id/editText_daily1"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -256,7 +270,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="2."
@@ -266,7 +281,8 @@
                         android:layout_alignBaseline="@+id/editText_daily2"
                         android:layout_alignBottom="@+id/editText_daily2"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
             </LinearLayout>
@@ -306,7 +322,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="1."
@@ -316,7 +333,8 @@
                         android:layout_alignBaseline="@+id/editText_happend1"
                         android:layout_alignBottom="@+id/editText_happend1"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -333,7 +351,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="2."
@@ -343,7 +362,8 @@
                         android:layout_alignBaseline="@+id/editText_happend2"
                         android:layout_alignBottom="@+id/editText_happend2"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -360,7 +380,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="3."
@@ -370,7 +391,8 @@
                         android:layout_alignBaseline="@+id/editText_happend3"
                         android:layout_alignBottom="@+id/editText_happend3"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -397,7 +419,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="1."
@@ -407,7 +430,8 @@
                         android:layout_alignBaseline="@+id/editText_better1"
                         android:layout_alignBottom="@+id/editText_better1"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
@@ -424,7 +448,8 @@
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:layout_marginLeft="32dp"
-                        android:layout_marginStart="32dp"/>
+                        android:layout_marginStart="32dp"
+                        android:fontFamily="serif"/>
 
                     <TextView
                         android:text="2."
@@ -434,7 +459,8 @@
                         android:layout_alignBaseline="@+id/editText_better2"
                         android:layout_alignBottom="@+id/editText_better2"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="serif"/>
 
                 </RelativeLayout>
 
