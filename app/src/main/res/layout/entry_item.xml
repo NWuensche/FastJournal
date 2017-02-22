@@ -4,4 +4,8 @@
     android:text="TextView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/entry_name" />
+    android:id="@+id/entry_name"
+    android:fontFamily="serif"
+    android:textSize="18dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="20dp"/>

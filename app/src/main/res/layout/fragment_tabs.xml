@@ -24,13 +24,28 @@
                 tools:context="journal.app.niklas.a5minutejournal.MainActivity$PlaceholderFragment"
                 android:background="#ffffda">
 
-                <TextView
-                    android:id="@+id/section_grateful_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="I am grateful for..."
-                    android:fontFamily="serif"
-                    android:textSize="18dp"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/section_grateful_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="I am grateful for..."
+                        android:fontFamily="serif"
+                        android:textSize="18dp" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/sun"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"/>
+
+
+                </RelativeLayout>
+
 
 
                 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -299,14 +314,26 @@
                         tools:context="journal.app.niklas.a5minutejournal.MainActivity$PlaceholderFragment"
                         android:background="#dedeba">
 
-                <TextView
-                    android:paddingTop="30dp"
-                    android:id="@+id/section_happend_label"
+                <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Which great things happend today?"
-                    android:fontFamily="serif"
-                    android:textSize="18dp"/>
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/section_happend_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Incredible things from today:"
+                        android:fontFamily="serif"
+                        android:textSize="18dp"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/moon"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
 
 
                 <RelativeLayout
