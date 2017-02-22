@@ -1,6 +1,7 @@
 package journal.app.niklas.a5minutejournal
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -8,7 +9,13 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.*
+import android.widget.ArrayAdapter
+import android.widget.ListView
+import android.widget.TextView
+import kotlinx.android.synthetic.main.entry_item.*
+import kotlinx.android.synthetic.main.fragment_all_entries.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +51,8 @@ class MainActivity : AppCompatActivity() {
 
         val tabLayout = findViewById(R.id.tabs) as TabLayout
         tabLayout.setupWithViewPager(mViewPager)
+
+        //TODO alle Logs raus
     }
 
 
@@ -130,11 +139,22 @@ class MainActivity : AppCompatActivity() {
             }
             return null
         }
+
     }
 
     // Will be called after onChanged
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         LoadFiles.loadTodaysTextFromFileToView(this)
+        loadAllEntries()
+
     }
+
+    private fun loadAllEntries() {
+        val files: List<String> = LoadFiles.getAllDateFileNames(this)
+        all_entries_view.adapter = ArrayAdapter(this, R.layout.entry_item, files)
+    }
+
+
+
 }

@@ -14,7 +14,9 @@ object LoadFiles {
         return activity.filesDir
                 .listFiles()
                 .map { it.name }
-                .filter { Character.isDigit(it[0]) } // 9 Feb -> 09 February
+                .filter { Character.isDigit(it[0]) }
+                .sorted()
+        // 9 Feb -> 09 February
     }
 
     fun getTextFromFile(activity: MainActivity, fileName: String): String {
