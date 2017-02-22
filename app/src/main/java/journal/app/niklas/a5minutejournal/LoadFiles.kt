@@ -1,7 +1,8 @@
 package journal.app.niklas.a5minutejournal
 
+import android.app.Activity
 import android.widget.TextView
-import kotlinx.android.synthetic.main.fragment_today.*
+import kotlinx.android.synthetic.main.fragment_tabs.*
 import java.io.File
 import java.io.FileInputStream
 
@@ -10,7 +11,7 @@ import java.io.FileInputStream
  */
 object LoadFiles {
 
-    fun getAllDateFileNames(activity: MainActivity): List<String> {
+    fun getAllDateFileNames(activity: Activity): List<String> {
         return activity.filesDir
                 .listFiles()
                 .map { it.name }
@@ -19,7 +20,7 @@ object LoadFiles {
         // 9 Feb -> 09 February
     }
 
-    fun getTextFromFile(activity: MainActivity, fileName: String): String {
+    fun getTextFromFile(activity: Activity, fileName: String): String {
         var buffer = ByteArray(0)
 
         try {
@@ -37,7 +38,7 @@ object LoadFiles {
         return String(buffer)
     }
 
-    fun loadTodaysTextFromFileToView(activity: MainActivity) {
+    fun loadTodaysTextFromFileToView(activity: Activity) {
         if(!doesTodaysExist(activity)) { //TODO Brauch ich das überhaupt?
             return
         }
@@ -47,11 +48,11 @@ object LoadFiles {
         fillTextViews(lines.iterator(), activity)
     }
 
-    private fun doesTodaysExist(activity: MainActivity): Boolean {
+    private fun doesTodaysExist(activity: Activity): Boolean {
         return getAllDateFileNames(activity).contains(Today.getToday().replace(" ", "_").plus(".txt"))
     }
 
-    private fun fillTextViews(lines: Iterator<String>, activity: MainActivity) {
+    private fun fillTextViews(lines: Iterator<String>, activity: Activity) {
         activity.editText_grateful1.setText(lines.next(), TextView.BufferType.EDITABLE)
         activity.editText_grateful2.setText(lines.next(), TextView.BufferType.EDITABLE)
         activity.editText_grateful3.setText(lines.next(), TextView.BufferType.EDITABLE)

@@ -15,7 +15,8 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.entry_item.*
-import kotlinx.android.synthetic.main.fragment_all_entries.*
+import kotlinx.android.synthetic.main.fragment_tabs.*
+import kotlinx.android.synthetic.main.fragment_tabs.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -82,14 +83,33 @@ class MainActivity : AppCompatActivity() {
      */
     class PlaceholderFragment : Fragment() {
 
+        fun loadAllEntries() {
+            val files: List<String> = LoadFiles.getAllDateFileNames(activity)
+            all_entries_view.adapter = ArrayAdapter(activity, R.layout.entry_item, files)
+        }
+
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
-            val rootView = inflater!!.inflate(R.layout.fragment_today, container, false)
-            val textView = rootView.findViewById(R.id.section_grateful_label) as TextView
-            textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
-            return rootView
+            val rootView = inflater!!.inflate(R.layout.fragment_tabs, container, false)
 
+            when(arguments.getInt(ARG_SECTION_NUMBER)) {
+                1 -> {
+                    rootView.layout_today.visibility = View.GONE
+                    rootView.layout_all_entries.visibility = View.VISIBLE
+                }
+
+                2 -> {
+                    rootView.layout_today.visibility = View.VISIBLE
+                    rootView.layout_all_entries.visibility = View.GONE
+                }
+            }
             return rootView
+        }
+
+        override fun onStart() {
+            super.onStart()
+
+            loadAllEntries()
         }
 
         companion object {
@@ -144,15 +164,6 @@ class MainActivity : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         LoadFiles.loadTodaysTextFromFileToView(this)
-//        loadAllEntries()
-
     }
-
-    private fun loadAllEntries() {
-        val files: List<String> = LoadFiles.getAllDateFileNames(this)
-//        all_entries_view.adapter = ArrayAdapter(this, R.layout.entry_item, files)
-    }
-
-
 
 }
