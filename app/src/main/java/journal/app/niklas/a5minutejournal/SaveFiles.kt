@@ -13,11 +13,8 @@ import java.io.FileOutputStream
  */
 object SaveFiles {
 
-    // TODO Unsaved Changes
-
     private var activity: Activity? = null
 
-    //TODO TOday wird am Anfang nicht geladen
     //TODO Wenn ich auf neues Item in ALl Entires klicke, dann schiebe Layout von Tag nach oben, damit ich direkt starten kann.
 
     fun onSave(mainActivity: Activity) {
