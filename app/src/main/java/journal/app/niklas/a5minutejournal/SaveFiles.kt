@@ -27,7 +27,7 @@ object SaveFiles {
         LoadFiles.getAllDatesDisplayName(activity!!)
                 .forEach { Log.e("test", "Filename: $it:\n".plus(LoadFiles.getTextFromFile(activity!!, it))) }
 
-        //TODO Reload List, damit Today auch drin ist.
+        //TODO Snackbar message that save is finished
     }
     
     fun saveFile(activity: Activity, date: String, content: String) {
