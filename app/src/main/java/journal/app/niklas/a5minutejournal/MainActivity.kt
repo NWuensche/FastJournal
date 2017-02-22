@@ -86,7 +86,11 @@ class MainActivity : AppCompatActivity() {
         fun loadAllEntries() {
             val files: List<String> = LoadFiles.getAllDateFileNames(activity)
             all_entries_view.adapter = ArrayAdapter(activity, R.layout.entry_item, files)
-            all_entries_view.setOnItemClickListener { adapterView, view, i, l -> Log.e("test", "button with ID $i pressed!") }
+            all_entries_view.setOnItemClickListener { adapterView, view, i, l ->
+                val textView = view as TextView
+                val text = textView.text
+                Log.e("test", "button with Name $text pressed!")
+            }
         }
 
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
