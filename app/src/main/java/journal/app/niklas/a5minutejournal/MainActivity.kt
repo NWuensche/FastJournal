@@ -84,12 +84,10 @@ class MainActivity : AppCompatActivity() {
 
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
-            var rootView :View? = null
-
-            when(arguments.getInt(ARG_SECTION_NUMBER)) {
-                1 -> rootView = inflater!!.inflate(R.layout.fragment_all_entries, container, false)
-                2 -> rootView = inflater!!.inflate(R.layout.fragment_today, container, false)
-            }
+            val rootView = inflater!!.inflate(R.layout.fragment_today, container, false)
+            val textView = rootView.findViewById(R.id.section_grateful_label) as TextView
+            textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
+            return rootView
 
             return rootView
         }
@@ -146,13 +144,13 @@ class MainActivity : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         LoadFiles.loadTodaysTextFromFileToView(this)
-        loadAllEntries()
+//        loadAllEntries()
 
     }
 
     private fun loadAllEntries() {
         val files: List<String> = LoadFiles.getAllDateFileNames(this)
-        all_entries_view.adapter = ArrayAdapter(this, R.layout.entry_item, files)
+//        all_entries_view.adapter = ArrayAdapter(this, R.layout.entry_item, files)
     }
 
 
