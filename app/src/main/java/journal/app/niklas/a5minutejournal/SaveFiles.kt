@@ -1,9 +1,10 @@
 package journal.app.niklas.a5minutejournal
 
+import android.app.Activity
 import android.content.Context
 import android.util.Log
 import journal.app.niklas.a5minutejournal.LoadFiles.getAllDateFileNames
-import kotlinx.android.synthetic.main.fragment_today.*
+import kotlinx.android.synthetic.main.fragment_tabs.*
 import java.io.FileOutputStream
 
 
@@ -12,9 +13,9 @@ import java.io.FileOutputStream
  */
 object SaveFiles {
 
-    private var activity: MainActivity? = null
+    private var activity: Activity? = null
 
-    fun onSaveToday(mainActivity: MainActivity) {
+    fun onSaveToday(mainActivity: Activity) {
         activity = mainActivity
 
         val filename = Today.getTodayFileName()

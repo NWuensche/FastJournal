@@ -14,8 +14,11 @@ import android.view.*
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.entry_item.*
-import kotlinx.android.synthetic.main.fragment_all_entries.*
+import kotlinx.android.synthetic.main.fragment_tabs.*
+import kotlinx.android.synthetic.main.fragment_tabs.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -82,16 +85,39 @@ class MainActivity : AppCompatActivity() {
      */
     class PlaceholderFragment : Fragment() {
 
+        fun loadAllEntries() {
+            val files: List<String> = LoadFiles.getAllDateFileNames(activity)
+            all_entries_view.adapter = ArrayAdapter(activity, R.layout.entry_item, files)
+            all_entries_view.setOnItemClickListener { adapterView, view, i, l ->
+                val textView = view as TextView
+                val text = textView.text
+                Log.e("test", "button with Name $text pressed!")
+                activity.container.currentItem++// Today as curr Tab
+            }
+        }
+
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
-            var rootView :View? = null
+            val rootView = inflater!!.inflate(R.layout.fragment_tabs, container, false)
 
             when(arguments.getInt(ARG_SECTION_NUMBER)) {
-                1 -> rootView = inflater!!.inflate(R.layout.fragment_all_entries, container, false)
-                2 -> rootView = inflater!!.inflate(R.layout.fragment_today, container, false)
-            }
+                1 -> {
+                    rootView.layout_today.visibility = View.GONE
+                    rootView.layout_all_entries.visibility = View.VISIBLE
+                }
 
+                2 -> {
+                    rootView.layout_today.visibility = View.VISIBLE
+                    rootView.layout_all_entries.visibility = View.GONE
+                }
+            }
             return rootView
+        }
+
+        override fun onStart() {
+            super.onStart()
+
+            loadAllEntries()
         }
 
         companion object {
@@ -146,15 +172,6 @@ class MainActivity : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         LoadFiles.loadTodaysTextFromFileToView(this)
-        loadAllEntries()
-
     }
-
-    private fun loadAllEntries() {
-        val files: List<String> = LoadFiles.getAllDateFileNames(this)
-        all_entries_view.adapter = ArrayAdapter(this, R.layout.entry_item, files)
-    }
-
-
 
 }
