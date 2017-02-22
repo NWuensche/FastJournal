@@ -1,7 +1,6 @@
 package journal.app.niklas.a5minutejournal
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -9,14 +8,10 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.*
 import android.widget.ArrayAdapter
-import android.widget.ListView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlinx.android.synthetic.main.entry_item.*
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import kotlinx.android.synthetic.main.fragment_tabs.view.*
 
@@ -168,7 +163,7 @@ class MainActivity : AppCompatActivity() {
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
                 0 -> return "ALL ENTRIES"
-                1 -> return "TODAY" // TODO Pass auf, wenn heutiger Tag genommen wird, wieder Today statt Tag anzuzeigen.
+                1 -> return "TODAY"
             }
             return null
         }
