@@ -1,6 +1,7 @@
 package journal.app.niklas.a5minutejournal
 
 import android.app.Activity
+import android.util.Log
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import java.io.File
@@ -30,9 +31,17 @@ object LoadFiles {
         return String(buffer)
     }
 
+/*
+    fun removeFile(activity: Activity, date: String) {
+        val file = File(activity.baseContext.filesDir, FileName.convertDateToFileName(date))
+        file.delete()
+    }
+*/
+
     fun loadTodaysTextFromFileToView(activity: Activity) {
-        if(!doesTodaysExist(activity)) { //TODO Brauch ich das überhaupt?
-            // TODO Leeren File erstellen
+        if(!doesTodaysExist(activity)) {
+            val emptyContent: String = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+            SaveFiles.saveFile(activity, Today.getDate(), emptyContent)
             return
         }
 
@@ -52,8 +61,10 @@ object LoadFiles {
     }
 
     private fun doesTodaysExist(activity: Activity): Boolean {
-        return getAllDatesDisplayName(activity)
-                .contains("Today")
+        return activity.filesDir
+                .listFiles()
+                .map { it.name }
+                .any { it.equals(Today.getTodayFileName()) }
     }
 
     private fun doesDayExist(activity: Activity, date: String): Boolean {
@@ -85,9 +96,11 @@ object LoadFiles {
     fun getAllDatesDisplayName(activity: Activity): List<String> {
         return activity.filesDir
                 .listFiles()
-                .map { it.name } // 9 Feb -> 09 February
+                .map { it.name }// 9 Feb -> 09 February
                 .filter { Character.isDigit(it[0]) }
-                .map { FileName.convertFileNameToDate(it) }
+                .map { FileName.convertFileNametoRealDate(it) }
+                .filter { FileName.removeTodayDate(it) }
+                .plus("Today")
                 .sorted()
                 .reversed()
     }

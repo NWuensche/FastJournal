@@ -37,12 +37,16 @@ object FileName {
         return date.replace(" ", "_").plus(".txt")
     }
 
-    fun convertFileNameToDate(fileName: String): String {
-        if(fileName.equals(Today.getTodayFileName())) {
-            return "Today"
+    fun convertFileNametoRealDate(fileName: String) : String {
+        return fileName.substring(0, fileName.length-4).replace("_", " ")
+    }
+
+    fun removeTodayDate(fileName: String): Boolean {
+        if(fileName.equals(Today.getDate())) {
+            return false
         }
 
-        return fileName.replace("_", " ").substring(0, fileName.length - 4) // remove .txt
+        return true
     }
 
 }

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.util.Log
 import kotlinx.android.synthetic.main.fragment_tabs.*
+import java.io.File
 import java.io.FileOutputStream
 
 
@@ -21,25 +22,26 @@ object SaveFiles {
     fun onSave(mainActivity: Activity) {
         activity = mainActivity
 
-        val filename = FileName.convertDateToFileName(FileName.getRealDate())
-        val input = getAllInput()
-
-        try {
-            val outputStream: FileOutputStream = activity!!.openFileOutput(filename, Context.MODE_PRIVATE)
-            outputStream.write(input.toByteArray())
-            outputStream.close()
-        }
-        catch (e: Exception) {
-            e.printStackTrace()
-        }
+        saveFile(mainActivity, FileName.getRealDate(), getAllContent())
 
         LoadFiles.getAllDatesDisplayName(activity!!)
                 .forEach { Log.e("test", "Filename: $it:\n".plus(LoadFiles.getTextFromFile(activity!!, it))) }
 
         //TODO Reload List, damit Today auch drin ist.
     }
+    
+    fun saveFile(activity: Activity, date: String, content: String) {
+        try {
+            val outputStream: FileOutputStream = activity.openFileOutput(FileName.convertDateToFileName(date), Context.MODE_PRIVATE)
+            outputStream.write(content.toByteArray())
+            outputStream.close()
+        }
+        catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 
-    private fun getAllInput(): String {
+    private fun getAllContent(): String {
         val grateful: String = getGrateful()
         val great: String = getGreat()
         val daily: String = getDaily()

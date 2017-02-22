@@ -100,8 +100,6 @@ class MainActivity : AppCompatActivity() {
                 activity.container.currentItem++// Today as curr Tab
 
                 Design.setEditTabTitle(activity) // Tab Title
-
-                //TODO Change Tab Name
             }
         }
 

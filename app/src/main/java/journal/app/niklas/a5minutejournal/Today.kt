@@ -10,12 +10,14 @@ import java.util.Date
 object Today {
 
     fun getDate(): String {
-        val today: Date = Calendar.getInstance().time
+        val cal: Calendar = Calendar.getInstance()
+        //cal.set(2017, 1, 1)
+        val today: Date = cal.time
         return SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH).format(today.time)
     }
 
     fun getTodayFileName(): String {
-        return getDate().replace(" ", "_").plus(".txt")
+        return FileName.convertDateToFileName(getDate())
     }
 
 }
