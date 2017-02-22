@@ -6,6 +6,9 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import java.io.File
 import java.io.FileInputStream
+import java.util.*
+import kotlin.comparisons.compareBy
+import kotlin.comparisons.compareValuesBy
 
 /**
  * Created by nwuensche on 19.02.17.
@@ -100,9 +103,15 @@ object LoadFiles {
                 .filter { Character.isDigit(it[0]) }
                 .map { FileName.convertFileNametoRealDate(it) }
                 .filter { FileName.removeTodayDate(it) }
-                .plus("Today")
+                .map(::DateString)
                 .sorted()
+                .map { it.toString() }
+                .plus("Today")
                 .reversed()
+    }
+
+    fun sort(s: String, s2: String): Int {
+        return 1
     }
 
 }
