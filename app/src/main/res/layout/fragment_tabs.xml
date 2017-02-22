@@ -500,6 +500,9 @@
 
     </ScrollView>
 
+    <!--TODO In All Entries wird nicht richtig sortiert, da nur auf Alphabet geschaut wird-->
+    <!--TODO Wenn ich von TODAY komme, dann Scroll hoch-->
+    <!--TODO Wenn ich Save drücke, dann Tastatur aus-->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -509,7 +512,8 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="journal.app.niklas.a5minutejournal.MainActivity$PlaceholderFragment"
-        android:id="@+id/layout_all_entries">
+        android:id="@+id/layout_all_entries"
+        android:background="#ababab">
 
         <ListView
             android:id="@+id/all_entries_view"
