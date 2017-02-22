@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
 
 
         if (id == R.id.action_save_today) {
-            SaveFiles.onSaveToday(this)
+            SaveFiles.onSave(this)
             return true
         }
 

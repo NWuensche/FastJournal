@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 object Design {
 
     fun setEditTabTitle(activity: Activity) {
-        val date: String = FileName.getCurrFileDate()
+        val date: String = FileName.getCurrFileDateOrToday()
 
         if(date.toUpperCase().equals("TODAY")) {
             activity.tabs.getTabAt(1)!!.text = "TODAY"

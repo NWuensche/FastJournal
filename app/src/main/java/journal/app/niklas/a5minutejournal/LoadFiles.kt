@@ -32,14 +32,13 @@ object LoadFiles {
 
     fun loadTodaysTextFromFileToView(activity: Activity) {
         if(!doesTodaysExist(activity)) { //TODO Brauch ich das überhaupt?
+            // TODO Leeren File erstellen
             return
         }
 
-        val lines = getTextFromFile(activity, Today.getTodayFileName()).split("\n")
+        val lines = getTextFromFile(activity, Today.getDate()).split("\n")
 
-        if(lines.size >= 13 ) {
-            fillTextViews(lines.iterator(), activity)//TODO Besser
-        }
+        fillTextViews(lines.iterator(), activity)
     }
 
     fun loadSomeDayTextFromFileToView(activity: Activity, date: String) {
@@ -53,7 +52,8 @@ object LoadFiles {
     }
 
     private fun doesTodaysExist(activity: Activity): Boolean {
-        return getAllDatesDisplayName(activity).contains(Today.getDate())
+        return getAllDatesDisplayName(activity)
+                .contains("Today")
     }
 
     private fun doesDayExist(activity: Activity, date: String): Boolean {

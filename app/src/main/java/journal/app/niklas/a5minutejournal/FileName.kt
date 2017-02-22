@@ -7,9 +7,19 @@ object FileName {
 
     var date: String = ""
 
-    fun getCurrFileDate(): String {
+    // Can be "TODAY"
+    fun getCurrFileDateOrToday(): String {
         if(date.equals("")) {
             return "TODAY"
+        }
+
+        return date
+    }
+
+    // Can't be "TODAY"
+    fun getRealDate(): String {
+        if(date.equals("") || date.toUpperCase().equals("TODAY")) {
+            return Today.getDate()
         }
 
         return date

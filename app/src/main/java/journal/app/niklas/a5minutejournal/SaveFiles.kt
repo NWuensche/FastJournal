@@ -12,12 +12,16 @@ import java.io.FileOutputStream
  */
 object SaveFiles {
 
+    // TODO Unsaved Changes
+
     private var activity: Activity? = null
 
-    fun onSaveToday(mainActivity: Activity) {
+    //TODO TOday wird am Anfang nicht geladen
+
+    fun onSave(mainActivity: Activity) {
         activity = mainActivity
 
-        val filename = Today.getTodayFileName()
+        val filename = FileName.convertDateToFileName(FileName.getRealDate())
         val input = getAllInput()
 
         try {
