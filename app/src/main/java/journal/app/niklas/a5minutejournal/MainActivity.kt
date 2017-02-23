@@ -8,12 +8,19 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.*
 import android.widget.ArrayAdapter
+import android.widget.TabHost
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import kotlinx.android.synthetic.main.fragment_tabs.view.*
+import android.graphics.PorterDuff
+import android.support.v4.content.ContextCompat
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,10 +53,27 @@ class MainActivity : AppCompatActivity() {
         mViewPager = findViewById(R.id.container) as ViewPager
         mViewPager!!.adapter = mSectionsPagerAdapter
         mViewPager!!.currentItem++ // Today as curr Tab
-
         val tabLayout = findViewById(R.id.tabs) as TabLayout
         tabLayout.setupWithViewPager(mViewPager)
 
+
+        tabLayout.addOnTabSelectedListener(
+                object : TabLayout.ViewPagerOnTabSelectedListener(mViewPager) {
+
+                    override fun onTabSelected(tab: TabLayout.Tab) {
+                        super.onTabSelected(tab)
+                        Log.e("test", "test")
+                    }
+
+                    override fun onTabUnselected(tab: TabLayout.Tab?) {
+                        super.onTabUnselected(tab)
+                    }
+
+                    override fun onTabReselected(tab: TabLayout.Tab?) {
+                        super.onTabReselected(tab)
+                    }
+                }
+        )
         //TODO alle Logs raus
     }
 
