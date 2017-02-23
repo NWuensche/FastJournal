@@ -1,5 +1,6 @@
 package journal.app.niklas.a5minutejournal
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_tabs.*
 import kotlinx.android.synthetic.main.fragment_tabs.view.*
 import android.graphics.PorterDuff
 import android.support.v4.content.ContextCompat
+import android.view.inputmethod.InputMethodManager
 import kotlinx.android.synthetic.main.entry_item.*
 
 
@@ -63,6 +65,10 @@ class MainActivity : AppCompatActivity() {
                     override fun onTabSelected(tab: TabLayout.Tab) {
                         super.onTabSelected(tab)
                         layout_today.scrollTo(0, section_grateful_label.bottom - section_grateful_label.height)
+
+                        //Hide Keyboard
+                        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                        imm.hideSoftInputFromWindow(layout_today.windowToken, 0)
                     }
 
                     override fun onTabUnselected(tab: TabLayout.Tab?) {

@@ -500,7 +500,6 @@
 
     </ScrollView>
 
-    <!--TODO Wenn ich von TODAY komme, dann Scroll hoch-->
     <!--TODO Wenn ich Save drücke, dann Tastatur aus-->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"

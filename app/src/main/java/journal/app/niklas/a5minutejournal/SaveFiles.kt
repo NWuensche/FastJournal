@@ -2,7 +2,9 @@ package journal.app.niklas.a5minutejournal
 
 import android.app.Activity
 import android.content.Context
+import android.support.design.widget.Snackbar
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import java.io.File
 import java.io.FileOutputStream
@@ -25,7 +27,15 @@ object SaveFiles {
         LoadFiles.getAllDatesDisplayName(activity!!)
                 .forEach { Log.e("test", "Filename: $it:\n".plus(LoadFiles.getTextFromFile(activity!!, it))) }
 
-        //TODO Snackbar message that save is finished
+
+        // Message
+        Snackbar.make(mainActivity.findViewById(R.id.layout_today), "Saved!", Snackbar.LENGTH_SHORT)
+                .setAction("Action",null)
+                .show()
+
+        //Hide Keyboard
+        val imm = mainActivity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(mainActivity.layout_today.windowToken, 0)
     }
     
     fun saveFile(activity: Activity, date: String, content: String) {
