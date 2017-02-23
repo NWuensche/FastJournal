@@ -19,7 +19,9 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import kotlinx.android.synthetic.main.fragment_tabs.view.*
 import android.graphics.PorterDuff
+import android.opengl.Visibility
 import android.support.v4.content.ContextCompat
+import android.support.v7.view.menu.ActionMenuItemView
 import android.view.inputmethod.InputMethodManager
 import kotlinx.android.synthetic.main.entry_item.*
 
@@ -69,6 +71,18 @@ class MainActivity : AppCompatActivity() {
                         //Hide Keyboard
                         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                         imm.hideSoftInputFromWindow(layout_today.windowToken, 0)
+
+                        // Show Save Icon only in Today VIew
+                        when(tab.position) {
+                            0 -> {
+                                val save = findViewById(R.id.action_save_today) as ActionMenuItemView
+                                save.visibility = View.GONE
+                            }
+                            1 -> {
+                                val save = findViewById(R.id.action_save_today) as ActionMenuItemView
+                                save.visibility = View.VISIBLE
+                            }
+                        }
                     }
 
                     override fun onTabUnselected(tab: TabLayout.Tab?) {
