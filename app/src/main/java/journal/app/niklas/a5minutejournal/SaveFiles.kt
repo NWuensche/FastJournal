@@ -3,10 +3,8 @@ package journal.app.niklas.a5minutejournal
 import android.app.Activity
 import android.content.Context
 import android.support.design.widget.Snackbar
-import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import kotlinx.android.synthetic.main.fragment_tabs.*
-import java.io.File
 import java.io.FileOutputStream
 
 
@@ -21,10 +19,6 @@ object SaveFiles {
         activity = mainActivity
 
         saveFile(mainActivity, FileName.getRealDate(), getAllContent())
-
-        LoadFiles.getAllDatesDisplayName(activity!!)
-                .forEach { Log.e("test", "Filename: $it:\n".plus(LoadFiles.getTextFromFile(activity!!, it))) }
-
 
         // Message
         Snackbar.make(mainActivity.findViewById(R.id.layout_today), "Saved!", Snackbar.LENGTH_SHORT)

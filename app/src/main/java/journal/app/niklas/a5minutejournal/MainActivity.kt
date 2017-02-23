@@ -8,22 +8,15 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.view.menu.ActionMenuItemView
 import android.support.v7.widget.Toolbar
-import android.util.Log
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
-import android.widget.TabHost
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import kotlinx.android.synthetic.main.fragment_tabs.view.*
-import android.graphics.PorterDuff
-import android.opengl.Visibility
-import android.support.v4.content.ContextCompat
-import android.support.v7.view.menu.ActionMenuItemView
-import android.view.inputmethod.InputMethodManager
-import kotlinx.android.synthetic.main.entry_item.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -94,7 +87,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
         )
-        //TODO alle Logs raus
     }
 
 

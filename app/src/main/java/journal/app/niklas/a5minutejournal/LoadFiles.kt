@@ -1,14 +1,10 @@
 package journal.app.niklas.a5minutejournal
 
 import android.app.Activity
-import android.util.Log
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import java.io.File
 import java.io.FileInputStream
-import java.util.*
-import kotlin.comparisons.compareBy
-import kotlin.comparisons.compareValuesBy
 
 /**
  * Created by nwuensche on 19.02.17.
