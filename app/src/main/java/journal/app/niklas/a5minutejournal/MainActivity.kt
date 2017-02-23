@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.fragment_tabs.view.*
 
 
 class MainActivity : AppCompatActivity() {
+    private var firstTime = true
 
     /**
      * The [android.support.v4.view.PagerAdapter] that will provide
@@ -209,7 +210,10 @@ class MainActivity : AppCompatActivity() {
     // Will be called after onChanged
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
-        LoadFiles.loadTodaysTextFromFileToView(this)
+        if(firstTime) {
+            LoadFiles.loadTodaysTextFromFileToView(this)
+            firstTime = false
+        }
     }
 
 }
