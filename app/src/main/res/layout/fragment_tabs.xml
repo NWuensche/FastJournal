@@ -32,7 +32,7 @@
                         android:id="@+id/section_grateful_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="I am grateful for..."
+                        android:text="I am thankful for..."
                         android:fontFamily="serif"
                         android:textSize="18dp" />
 
@@ -238,7 +238,7 @@
                     android:id="@+id/section_daily_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Daily affirmation. I'm..."
+                    android:text="I feel..."
                     android:fontFamily="serif"
                     android:textSize="18dp"/>
 
@@ -322,7 +322,7 @@
                         android:id="@+id/section_happend_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Incredible things from today:"
+                        android:text="Today's highlights:"
                         android:fontFamily="serif"
                         android:textSize="18dp"/>
 
@@ -428,7 +428,7 @@
                     android:id="@+id/section_batter_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="What could have been better?"
+                    android:text="Today's lowlights:"
                     android:fontFamily="serif"
                     android:textSize="18dp"/>
 
@@ -490,9 +490,7 @@
                         android:fontFamily="serif"/>
 
                 </RelativeLayout>
-
-                <!-- TODO Texte minimal abändern, damit nicht 1:1 5 Minute Journal -->
-
+                
             </LinearLayout>
         </LinearLayout>
 
