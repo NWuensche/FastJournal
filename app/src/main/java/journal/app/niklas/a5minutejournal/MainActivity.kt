@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_tabs.*
 import kotlinx.android.synthetic.main.fragment_tabs.view.*
 import android.graphics.PorterDuff
 import android.support.v4.content.ContextCompat
-
+import kotlinx.android.synthetic.main.entry_item.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
                     override fun onTabSelected(tab: TabLayout.Tab) {
                         super.onTabSelected(tab)
-                        Log.e("test", "test")
+                        layout_today.scrollTo(0, section_grateful_label.bottom - section_grateful_label.height)
                     }
 
                     override fun onTabUnselected(tab: TabLayout.Tab?) {

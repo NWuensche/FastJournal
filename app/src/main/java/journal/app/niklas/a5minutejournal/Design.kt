@@ -20,7 +20,6 @@ object Design {
         activity.tabs.getTabAt(1)!!.text = date
 
         activity.layout_today.scrollTo(0, activity.section_grateful_label.bottom - activity.section_grateful_label.height)
-
     }
 
 }
