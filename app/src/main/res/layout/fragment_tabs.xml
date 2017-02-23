@@ -492,15 +492,12 @@
                 </RelativeLayout>
 
                 <!-- TODO Texte minimal abändern, damit nicht 1:1 5 Minute Journal -->
-                <!-- TODO Wenn ich EditText ändere, und dann zu all Enties gehe, dann geht tastatur nicht aus -->
-
 
             </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
 
-    <!--TODO Wenn ich Save drücke, dann Tastatur aus-->
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"

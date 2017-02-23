@@ -145,7 +145,6 @@ class MainActivity : AppCompatActivity() {
         override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
             val rootView = inflater!!.inflate(R.layout.fragment_tabs, container, false)
-            //TODO Save Icon in Toolbar nur bei Today, nicth all Entries
 
             when(arguments.getInt(ARG_SECTION_NUMBER)) {
                 1 -> {

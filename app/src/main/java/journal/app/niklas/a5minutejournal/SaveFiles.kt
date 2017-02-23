@@ -17,8 +17,6 @@ object SaveFiles {
 
     private var activity: Activity? = null
 
-    //TODO Wenn ich auf neues Item in ALl Entires klicke, dann schiebe Layout von Tag nach oben, damit ich direkt starten kann.
-
     fun onSave(mainActivity: Activity) {
         activity = mainActivity
 
