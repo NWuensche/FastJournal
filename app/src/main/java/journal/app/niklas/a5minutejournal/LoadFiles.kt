@@ -106,8 +106,4 @@ object LoadFiles {
                 .reversed()
     }
 
-    fun sort(s: String, s2: String): Int {
-        return 1
-    }
-
 }
