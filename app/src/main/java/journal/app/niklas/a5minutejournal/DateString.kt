@@ -29,7 +29,7 @@ class DateString(val date: String) : Comparable<DateString> {
             "APRIL" -> return 4
             "MAY" -> return 5
             "JUNE" -> return 6
-            "JULI" -> return 7
+            "JULY" -> return 7
             "AUGUST" -> return 8
             "SEPTEMBER" -> return 9
             "OCTOBER" -> return 10
