@@ -1,29 +1,44 @@
 package journal.app.niklas.a5minutejournal
 
-import android.content.Context
-import android.support.test.InstrumentationRegistry
-import android.support.test.runner.AndroidJUnit4
-
+import android.support.test.espresso.Espresso.onView
+import android.support.test.espresso.action.ViewActions.typeText
+import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.matcher.ViewMatchers.*
+import org.hamcrest.CoreMatchers.allOf
+import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-
-import org.junit.Assert.*
+import java.io.File
 
 /**
  * Instrumentation test, which will execute on an Android device.
 
  * @see [Testing documentation](http://d.android.com/tools/testing)
  */
-@RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class ExampleInstrumentedTest : SuperEspresso() {
+
+    @Before
+    fun deleteAllFiles() {
+        appContext.filesDir
+                .listFiles()
+                .forEach { this::removeFile }
+    }
+
+    fun removeFile(fileName: String) {
+        val file = File(appContext.filesDir, fileName)
+        file.delete()
+    }
 
     @Test
     @Throws(Exception::class)
     fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
-
         assertEquals("journal.app.niklas.a5minutejournal", appContext.packageName)
+    }
+
+    @Test
+    fun writingWorks() {
+        onView(allOf(isDisplayed(),withId(R.id.editText_grateful1))).perform(typeText("Hello"))
+        onView(allOf(isDisplayed(),withId(R.id.editText_grateful1))).check(matches(withText("Hello")))
     }
 
 }
