@@ -7,7 +7,9 @@ object FileName {
 
     private var date: String = ""
 
-    // Can be "TODAY"
+    /**
+     * @return Can be "TODAY"
+     */
     fun getCurrFileDateOrToday(): String {
         if(date.equals("")) {
             return "TODAY"
@@ -16,7 +18,9 @@ object FileName {
         return date
     }
 
-    // Can't be "TODAY"
+    /**
+     * @return Can't be "TODAY"
+     */
     fun getRealDate(): String {
         if(date.equals("") || date.toUpperCase().equals("TODAY")) {
             return Today.getDate()
@@ -41,7 +45,7 @@ object FileName {
         return fileName.substring(0, fileName.length-4).replace("_", " ")
     }
 
-    fun removeTodayDate(fileName: String): Boolean {
+    fun filterRemoveTodayDate(fileName: String): Boolean {
         if(fileName.equals(Today.getDate())) {
             return false
         }
