@@ -8,7 +8,7 @@ import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import junit.framework.Assert.fail
 import org.hamcrest.CoreMatchers.*
-import org.junit.Assert
+import org.junit.Assert.assertThat
 import org.junit.Test
 
 /**
@@ -35,8 +35,8 @@ class StartUpTests : SuperEspresso() {
     fun areTabTitlesRight() {
         onView(withId(R.id.tabs)).check { view, noViewFoundException ->
             val tabs = view as TabLayout
-            Assert.assertThat(tabs.getTabAt(0)!!.text.toString(), `is`("ALL ENTRIES"))
-            Assert.assertThat(tabs.getTabAt(1)!!.text.toString(), `is`("TODAY"))
+            assertThat(tabs.getTabAt(0)!!.text.toString(), `is`("ALL ENTRIES"))
+            assertThat(tabs.getTabAt(1)!!.text.toString(), `is`("TODAY"))
         }
     }
 

@@ -97,7 +97,7 @@ object LoadFiles {
                 .listFiles()
                 .map { it.name }// 9 Feb -> 09 February
                 .filter { Character.isDigit(it[0]) }
-                .map { FileName.convertFileNametoRealDate(it) }
+                .map { FileName.convertFileNameToRealDate(it) }
                 .filter { FileName.removeTodayDate(it) }
                 .map(::DateString)
                 .sorted()

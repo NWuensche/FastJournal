@@ -5,7 +5,7 @@ package journal.app.niklas.a5minutejournal
  */
 object FileName {
 
-    var date: String = ""
+    private var date: String = ""
 
     // Can be "TODAY"
     fun getCurrFileDateOrToday(): String {
@@ -37,7 +37,7 @@ object FileName {
         return date.replace(" ", "_").plus(".txt")
     }
 
-    fun convertFileNametoRealDate(fileName: String) : String {
+    fun convertFileNameToRealDate(fileName: String) : String {
         return fileName.substring(0, fileName.length-4).replace("_", " ")
     }
 
