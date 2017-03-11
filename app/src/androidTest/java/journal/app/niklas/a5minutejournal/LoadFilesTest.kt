@@ -44,11 +44,11 @@ class LoadFilesTest : SuperEspresso() {
         val dateToday: String = TestTodayHelperEspresso.today()
         val contentToday: String = "Test\n\n\n\n\n\n\n\n\nHere\n\n\n\n\n\n\n\n"
 
-        val content = mapOf(date1 to content1, date2 to content2, date3 to content3,
-                date4 to content4, dateToday to contentToday)
-
-        content.forEach { date, content -> SaveFiles.saveFile(appContext, date, content)}
-
+        SaveFiles.saveFile(appContext, date1, content1)
+        SaveFiles.saveFile(appContext, date2, content2)
+        SaveFiles.saveFile(appContext, date3, content3)
+        SaveFiles.saveFile(appContext, date4, content4)
+        SaveFiles.saveFile(appContext, dateToday, contentToday)
     }
 
     @Test
