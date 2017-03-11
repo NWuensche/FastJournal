@@ -1,6 +1,7 @@
 package journal.app.niklas.a5minutejournal
 
 import android.app.Activity
+import android.content.Context
 import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import java.io.File
@@ -11,12 +12,12 @@ import java.io.FileInputStream
  */
 object LoadFiles {
 
-    fun getTextFromFile(activity: Activity, date: String): String {
+    fun getTextFromFile(context: Context, date: String): String {
         var buffer = ByteArray(0)
         val dateFileName: String = FileName.convertDateToFileName(date)
 
         try {
-            val file = File(activity.baseContext.filesDir, dateFileName)
+            val file = File(context.filesDir, dateFileName)
             buffer = ByteArray(file.length().toInt())
 
             val inputStream: FileInputStream = FileInputStream(file)
@@ -37,41 +38,42 @@ object LoadFiles {
     }
 */
 
-    fun loadTodaysTextFromFileToView(activity: Activity) {
-        if(!doesTodaysExist(activity)) {
+    fun loadTodaysTextFromFileToView(context: Context) {
+        if(!doesTodaysExist(context)) {
             val emptyContent: String = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-            SaveFiles.saveFile(activity, Today.getDate(), emptyContent)
+            SaveFiles.saveFile(context, Today.getDate(), emptyContent)
             return
         }
 
-        val lines = getTextFromFile(activity, Today.getDate()).split("\n")
+        val lines = getTextFromFile(context, Today.getDate()).split("\n")
 
-        fillTextViews(lines.iterator(), activity)
+        fillTextViews(lines.iterator(), context)
     }
 
-    fun loadSomeDayTextFromFileToView(activity: Activity, date: String) {
-        if(!doesDayExist(activity, date)) {
+    fun loadSomeDayTextFromFileToView(context: Context, date: String) {
+        if(!doesDayExist(context, date)) {
             return
         }
 
-        val lines = getTextFromFile(activity, date).split("\n")
+        val lines = getTextFromFile(context, date).split("\n")
 
-        fillTextViews(lines.iterator(), activity)
+        fillTextViews(lines.iterator(), context)
     }
 
-    private fun doesTodaysExist(activity: Activity): Boolean {
-        return activity.filesDir
+    private fun doesTodaysExist(context: Context): Boolean {
+        return context.filesDir
                 .listFiles()
                 .map { it.name }
                 .any { it.equals(Today.getTodayFileName()) }
     }
 
-    private fun doesDayExist(activity: Activity, date: String): Boolean {
-        return getAllDatesDisplayName(activity).contains(date)
+    private fun doesDayExist(context: Context, date: String): Boolean {
+        return getAllDatesDisplayName(context).contains(date)
     }
 
 
-    private fun fillTextViews(lines: Iterator<String>, activity: Activity) {
+    private fun fillTextViews(lines: Iterator<String>, context: Context) {
+        val activity = context as Activity
         activity.editText_grateful1.setText(lines.next(), TextView.BufferType.EDITABLE)
         activity.editText_grateful2.setText(lines.next(), TextView.BufferType.EDITABLE)
         activity.editText_grateful3.setText(lines.next(), TextView.BufferType.EDITABLE)
@@ -92,8 +94,8 @@ object LoadFiles {
         lines.next()
     }
 
-    fun getAllDatesDisplayName(activity: Activity): List<String> {
-        return activity.filesDir
+    fun getAllDatesDisplayName(context: Context): List<String> {
+        return context.filesDir
                 .listFiles()
                 .map { it.name }// 9 Feb -> 09 February
                 .filter { Character.isDigit(it[0]) }

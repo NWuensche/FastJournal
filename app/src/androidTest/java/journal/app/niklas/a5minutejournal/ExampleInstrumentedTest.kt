@@ -37,8 +37,8 @@ class ExampleInstrumentedTest : SuperEspresso() {
 
     @Test
     fun writingWorks() {
-        onView(allOf(isDisplayed(),withId(R.id.editText_grateful1))).perform(typeText("Hello"))
-        onView(allOf(isDisplayed(),withId(R.id.editText_grateful1))).check(matches(withText("Hello")))
+        onView(allOf(isDisplayed(),withId(R.id.editText_grateful2))).perform(typeText("Hello"))
+        onView(allOf(isDisplayed(),withId(R.id.editText_grateful2))).check(matches(withText("Hello")))
     }
 
 }

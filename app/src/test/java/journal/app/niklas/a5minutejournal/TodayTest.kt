@@ -11,12 +11,12 @@ class TodayTest {
 
     @Test
     fun getDate() {
-        assertThat(Today.getDate(), `is`(TestTodayHelper.today()))
+        assertThat(Today.getDate(), `is`(TestTodayHelperJUnit.today()))
     }
 
     @Test
     fun getTodayFileName() {
-        assertThat(Today.getTodayFileName(), `is`(TestTodayHelper.today().replace(" ", "_").plus(".txt")))
+        assertThat(Today.getTodayFileName(), `is`(TestTodayHelperJUnit.today().replace(" ", "_").plus(".txt")))
     }
 
 }

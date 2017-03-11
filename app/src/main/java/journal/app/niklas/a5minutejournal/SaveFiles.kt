@@ -30,9 +30,9 @@ object SaveFiles {
         imm.hideSoftInputFromWindow(mainActivity.layout_today.windowToken, 0)
     }
     
-    fun saveFile(activity: Activity, date: String, content: String) {
+    fun saveFile(context: Context, date: String, content: String) {
         try {
-            val outputStream: FileOutputStream = activity.openFileOutput(FileName.convertDateToFileName(date), Context.MODE_PRIVATE)
+            val outputStream: FileOutputStream = context.openFileOutput(FileName.convertDateToFileName(date), Context.MODE_PRIVATE)
             outputStream.write(content.toByteArray())
             outputStream.close()
         }

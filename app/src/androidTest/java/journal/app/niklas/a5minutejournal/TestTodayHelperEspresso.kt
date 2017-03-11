@@ -6,7 +6,7 @@ import java.util.*
 /**
  * Created by nwuensche on 11.03.17.
  */
-object TestTodayHelper {
+object TestTodayHelperEspresso {
 
     fun today(): String {
         return SimpleDateFormat("dd MMMM yyyy", Locale.ENGLISH)

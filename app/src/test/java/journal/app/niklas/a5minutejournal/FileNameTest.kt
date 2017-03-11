@@ -16,7 +16,7 @@ class FileNameTest {
         FileName.setCurrentFileDate("") // startCondition, don't know if first test
 
         assertThat(FileName.getCurrFileDateOrToday(), `is`("TODAY"))
-        assertThat(FileName.getRealDate(), `is`(TestTodayHelper.today()))
+        assertThat(FileName.getRealDate(), `is`(TestTodayHelperJUnit.today()))
     }
 
     @Test
@@ -36,7 +36,7 @@ class FileNameTest {
     @Test
     fun filterTodayFromFileNames() {
         val fileNames: List<String> = Arrays.asList("12 January 2013", "23 October 2015",
-                TestTodayHelper.today())
+                TestTodayHelperJUnit.today())
 
         val filteredNames = fileNames
                 .filter { name -> FileName.filterRemoveTodayDate(name)}
