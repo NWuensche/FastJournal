@@ -1,23 +1,21 @@
 package journal.app.niklas.a5minutejournal
 
-import android.content.Context
 import android.support.test.espresso.Espresso.onView
+import android.support.test.espresso.NoMatchingViewException
+import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.*
+import android.util.Log
+import android.widget.ListView
+import android.widget.TextView
+import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Assert
-import org.junit.Assert.*
 import org.junit.Before
+import org.junit.BeforeClass
 import org.junit.Test
-import journal.app.niklas.a5minutejournal.TestTodayHelperEspresso
-import android.support.v4.content.ContextCompat.startActivity
-import android.content.Intent
-import android.app.AlarmManager
-import android.app.PendingIntent
-
-
-
+import java.io.File
 
 
 /**
@@ -27,8 +25,32 @@ class LoadFilesTest : SuperEspresso() {
 
     val contentToday: String = "Test\n\n\n\n\n\n\n\n\nHere\n\n\n\n\n\n\n\n"
 
-    @Before
-    fun addFiles() {
+    @Test
+    fun todayRight() {
+        setUpFiles()
+        Assert.assertThat(LoadFiles.getTextFromFile(appContext, TestTodayHelperEspresso.today()), `is`(contentToday))
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
+    }
+
+    fun setUpFiles() {
+        removeAllFiles()
+        addFiveFiles()
+    }
+
+    private fun removeAllFiles() {
+        appContext.filesDir
+                .listFiles()
+                .map { Log.e("test", it.name)
+                    it.name }
+                .forEach { this::removeFile }
+    }
+
+    private fun removeFile(fileName: String) {
+        val file = File(appContext.filesDir, fileName)
+        file.delete()
+    }
+
+    private fun addFiveFiles() {
         val date1: String = "1 January 2013"
         val content1: String = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 
@@ -52,9 +74,36 @@ class LoadFilesTest : SuperEspresso() {
     }
 
     @Test
-    fun TodayRight() {
-        Assert.assertThat(LoadFiles.getTextFromFile(appContext, TestTodayHelperEspresso.today()), `is`(contentToday))
-        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
+    fun fiveEntriesInAllEntries() {
+        setUpFiles()
+        onView(withText("ALL ENTRIES")).perform(click())
+        checkIfRightTabOpened()
+        checkIfFiveEntries()
+    }
+
+    private fun checkIfRightTabOpened() {
+        // All Entries Layout visible
+        onView(allOf(isDisplayed(), withId(R.id.all_entries_view))).check(matches(isDisplayed()))
+
+
+        // Edit Layout invisible
+        try {
+            onView(allOf(isDisplayed(), withId(R.id.layout_today))).check(matches(CoreMatchers.not(isDisplayed())))
+            junit.framework.Assert.fail()
+        }
+        catch(e: NoMatchingViewException) {
+        }
+    }
+
+    private fun checkIfFiveEntries() {
+        onView(allOf(isDisplayed(), withId(R.id.all_entries_view))).check { view, _ ->
+            val list = view as ListView
+
+            assertThat(list.adapter.count, `is`(5))
+
+            val firstItem = list.getItemAtPosition(0) as String
+            Assert.assertThat(firstItem, `is`("Today"))
+        }
     }
 
 }

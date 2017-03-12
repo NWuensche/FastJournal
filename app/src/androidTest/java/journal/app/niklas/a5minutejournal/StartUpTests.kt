@@ -22,7 +22,7 @@ class StartUpTests : SuperEspresso() {
         onView(allOf(isDisplayed(), withId(R.id.layout_today))).check(matches(isDisplayed()))
 
 
-        // Other Layout invisible
+        // ALl Entries Layout invisible
         try {
             onView(allOf(isDisplayed(), withId(R.id.all_entries_view))).check(matches(not(isDisplayed())))
             fail()
@@ -33,7 +33,7 @@ class StartUpTests : SuperEspresso() {
 
     @Test
     fun areTabTitlesRight() {
-        onView(withId(R.id.tabs)).check { view, noViewFoundException ->
+        onView(withId(R.id.tabs)).check { view, _ ->
             val tabs = view as TabLayout
             assertThat(tabs.getTabAt(0)!!.text.toString(), `is`("ALL ENTRIES"))
             assertThat(tabs.getTabAt(1)!!.text.toString(), `is`("TODAY"))

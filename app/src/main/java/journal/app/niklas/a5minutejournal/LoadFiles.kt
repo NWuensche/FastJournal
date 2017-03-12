@@ -31,13 +31,6 @@ object LoadFiles {
         return String(buffer)
     }
 
-/*
-    fun removeFile(activity: Activity, date: String) {
-        val file = File(activity.baseContext.filesDir, FileName.convertDateToFileName(date))
-        file.delete()
-    }
-*/
-
     fun loadTodaysTextFromFileToView(context: Context) {
         if(!doesTodaysExist(context)) {
             val emptyContent: String = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"

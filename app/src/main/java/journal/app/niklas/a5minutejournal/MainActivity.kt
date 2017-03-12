@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
             all_entries_view.adapter = ArrayAdapter(activity, R.layout.entry_item, files)
 
 
-            all_entries_view.setOnItemClickListener { adapterView, view, i, l ->
+            all_entries_view.setOnItemClickListener { _, view, _, _ ->
                 val textView = view as TextView
                 val date: String = textView.text.toString()
 
