@@ -74,6 +74,9 @@ class LoadFilesTest : SuperEspresso() {
     }
 
     @Test
+    /**
+     * @ImplNotes You might have to unistall app from device
+     **/
     fun fiveEntriesInAllEntries() {
         setUpFiles()
         onView(withText("ALL ENTRIES")).perform(click())
