@@ -5,17 +5,12 @@ import android.support.test.espresso.NoMatchingViewException
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.*
-import android.util.Log
 import android.widget.ListView
-import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_tabs.*
 import org.hamcrest.CoreMatchers
-import org.hamcrest.CoreMatchers.`is`
-import org.hamcrest.CoreMatchers.allOf
+import org.hamcrest.CoreMatchers.*
 import org.junit.Assert
-import org.junit.Before
-import org.junit.BeforeClass
 import org.junit.Test
-import java.io.File
 
 
 /**
@@ -39,15 +34,7 @@ class LoadFilesTest : SuperEspresso() {
 
     private fun removeAllFiles() {
         appContext.filesDir
-                .listFiles()
-                .map { Log.e("test", it.name)
-                    it.name }
-                .forEach { this::removeFile }
-    }
-
-    private fun removeFile(fileName: String) {
-        val file = File(appContext.filesDir, fileName)
-        file.delete()
+                .deleteRecursively()
     }
 
     private fun addFiveFiles() {
@@ -73,18 +60,18 @@ class LoadFilesTest : SuperEspresso() {
         SaveFiles.saveFile(appContext, dateToday, contentToday)
     }
 
-    @Test
     /**
      * @ImplNotes You might have to unistall app from device
      */
+    @Test
     fun fiveEntriesInAllEntries() {
         setUpFiles()
         onView(withText("ALL ENTRIES")).perform(click())
-        checkIfRightTabOpened()
+        checkIfAllEntriesTabOpened()
         checkIfFiveEntries()
     }
 
-    private fun checkIfRightTabOpened() {
+    private fun checkIfAllEntriesTabOpened() {
         // All Entries Layout visible
         onView(allOf(isDisplayed(), withId(R.id.all_entries_view))).check(matches(isDisplayed()))
 
@@ -107,6 +94,36 @@ class LoadFilesTest : SuperEspresso() {
             val firstItem = list.getItemAtPosition(0) as String
             Assert.assertThat(firstItem, `is`("Today"))
         }
+    }
+
+    @Test
+    fun loadRightStuffFromFile() {
+        onView(withText("ALL ENTRIES")).perform(click())
+        onView(withText("2 June 2013")).perform(click())
+
+        checkIfEditTabOpened()
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful3))).check(matches(withText("c")))
+
+        scrollDown()// Necessary because listview doesnt build what is not on screen
+        onView(allOf(isDisplayed(), withId(R.id.editText_better1))).check(matches(withText("p")))
+    }
+
+    private fun checkIfEditTabOpened() {
+        // Edit Layout invisible
+        onView(allOf(isDisplayed(), withId(R.id.layout_today))).check(matches(isDisplayed()))
+
+
+        // All Entries Layout visible
+        try {
+            onView(allOf(isDisplayed(), withId(R.id.all_entries_view))).check(matches(not(isDisplayed())))
+            junit.framework.Assert.fail()
+        }
+        catch(e: NoMatchingViewException) {
+        }
+    }
+
+    private fun scrollDown() {
+        activityRule.activity.layout_today.scrollTo(0, 10*activityRule.activity.editText_better2.bottom)
     }
 
 }
