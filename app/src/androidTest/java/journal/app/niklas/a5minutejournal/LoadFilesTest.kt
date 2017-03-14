@@ -1,9 +1,11 @@
 package journal.app.niklas.a5minutejournal
 
+import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.NoMatchingViewException
-import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.matcher.RootMatchers.withDecorView
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.widget.ListView
 import kotlinx.android.synthetic.main.fragment_tabs.*
@@ -11,6 +13,12 @@ import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.*
 import org.junit.Assert
 import org.junit.Test
+import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
+import android.support.test.espresso.matcher.RootMatchers.withDecorView
+import android.support.test.espresso.Espresso.onView
+import android.support.test.espresso.action.ViewActions.*
+import android.view.inputmethod.InputMethodManager
+import org.junit.Before
 
 
 /**
@@ -20,16 +28,16 @@ class LoadFilesTest : SuperEspresso() {
 
     val contentToday: String = "Test\n\n\n\n\n\n\n\n\nHere\n\n\n\n\n\n\n\n"
 
-    @Test
-    fun todayRight() {
-        setUpFiles()
-        Assert.assertThat(LoadFiles.getTextFromFile(appContext, TestTodayHelperEspresso.today()), `is`(contentToday))
-        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
-    }
-
+    @Before
     fun setUpFiles() {
         removeAllFiles()
         addFiveFiles()
+    }
+
+    @Test
+    fun todayRight() {
+        Assert.assertThat(LoadFiles.getTextFromFile(appContext, TestTodayHelperEspresso.today()), `is`(contentToday))
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
     }
 
     private fun removeAllFiles() {
@@ -65,7 +73,6 @@ class LoadFilesTest : SuperEspresso() {
      */
     @Test
     fun fiveEntriesInAllEntries() {
-        setUpFiles()
         onView(withText("ALL ENTRIES")).perform(click())
         checkIfAllEntriesTabOpened()
         checkIfFiveEntries()
@@ -80,8 +87,7 @@ class LoadFilesTest : SuperEspresso() {
         try {
             onView(allOf(isDisplayed(), withId(R.id.layout_today))).check(matches(CoreMatchers.not(isDisplayed())))
             junit.framework.Assert.fail()
-        }
-        catch(e: NoMatchingViewException) {
+        } catch(e: NoMatchingViewException) {
         }
     }
 
@@ -98,10 +104,28 @@ class LoadFilesTest : SuperEspresso() {
 
     @Test
     fun loadRightStuffFromFile() {
+        lookIfTodayAndWriteAndSave()
+        switchToOtherDateAndTestContent()
+        switchToTodayAndLookIfSavedContentThere()
+    }
+
+    private fun lookIfTodayAndWriteAndSave() {
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful2))).perform(typeText("123"))
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful2))).check(matches(withText("123")))
+
+        onView(allOf(isDisplayed(), withId(R.id.action_save_today))).perform(click())
+        onView(allOf(withId(android.support.design.R.id.snackbar_text), withText("Saved!")))
+                .check(matches(isDisplayed()))
+        //TODO Test, dass bei switch to All Entries Keyboard aus geht
+    }
+
+    private fun switchToOtherDateAndTestContent() {
         onView(withText("ALL ENTRIES")).perform(click())
         onView(withText("2 June 2013")).perform(click())
 
         checkIfEditTabOpened()
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("a")))
         onView(allOf(isDisplayed(), withId(R.id.editText_grateful3))).check(matches(withText("c")))
 
         scrollDown()// Necessary because listview doesnt build what is not on screen
@@ -117,13 +141,21 @@ class LoadFilesTest : SuperEspresso() {
         try {
             onView(allOf(isDisplayed(), withId(R.id.all_entries_view))).check(matches(not(isDisplayed())))
             junit.framework.Assert.fail()
-        }
-        catch(e: NoMatchingViewException) {
+        } catch(e: NoMatchingViewException) {
         }
     }
 
     private fun scrollDown() {
-        activityRule.activity.layout_today.scrollTo(0, 10*activityRule.activity.editText_better2.bottom)
+        activityRule.activity.layout_today.scrollTo(0, 10 * activityRule.activity.editText_better2.bottom)
+    }
+
+    private fun switchToTodayAndLookIfSavedContentThere() {
+        onView(withText("ALL ENTRIES")).perform(click())
+        onView(withText("Today")).perform(click())
+        //TODO scrollTO?
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful2))).check(matches(withText("123")))
+        //TODO Cursor rechts von Wort
     }
 
 }
