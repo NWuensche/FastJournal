@@ -156,5 +156,6 @@ class LoadFilesTest : SuperEspresso() {
 
         onView(allOf(isDisplayed(), withId(R.id.editText_grateful2))).check(matches(withText("123")))
     }
+    // TODO Blauer statt pinker Cursor
 
 }
