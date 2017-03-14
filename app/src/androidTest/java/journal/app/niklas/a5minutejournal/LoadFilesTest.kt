@@ -1,24 +1,18 @@
 package journal.app.niklas.a5minutejournal
 
-import android.app.PendingIntent.getActivity
-import android.content.Context
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.NoMatchingViewException
+import android.support.test.espresso.action.ViewActions.click
+import android.support.test.espresso.action.ViewActions.typeText
 import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.RootMatchers.withDecorView
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.widget.ListView
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.*
 import org.junit.Assert
-import org.junit.Test
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
-import android.support.test.espresso.matcher.RootMatchers.withDecorView
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.action.ViewActions.*
-import android.view.inputmethod.InputMethodManager
 import org.junit.Before
+import org.junit.Test
 
 
 /**
@@ -27,17 +21,12 @@ import org.junit.Before
 class LoadFilesTest : SuperEspresso() {
 
     val contentToday: String = "Test\n\n\n\n\n\n\n\n\nHere\n\n\n\n\n\n\n\n"
+    val manipulatedContentToday: String = "Test\n123\n\n\n\n\n\n\n\nHere\n\n\n\n\n\n\n\n"
 
     @Before
     fun setUpFiles() {
         removeAllFiles()
         addFiveFiles()
-    }
-
-    @Test
-    fun todayRight() {
-        Assert.assertThat(LoadFiles.getTextFromFile(appContext, TestTodayHelperEspresso.today()), `is`(contentToday))
-        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
     }
 
     private fun removeAllFiles() {
@@ -68,8 +57,16 @@ class LoadFilesTest : SuperEspresso() {
         SaveFiles.saveFile(appContext, dateToday, contentToday)
     }
 
+
+    @Test
+    fun todayRight() {
+        Assert.assertThat(LoadFiles.getTextFromFile(appContext, TestTodayHelperEspresso.today()), `is`(contentToday))
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
+        assertThat(activityRule.activity.editText_grateful1.selectionStart, `is`("Test".length)) // Look where cursor is
+    }
+
     /**
-     * @ImplNotes You might have to unistall app from device
+     * @ImplNotes You might have to reload tests again
      */
     @Test
     fun fiveEntriesInAllEntries() {
@@ -136,7 +133,7 @@ class LoadFilesTest : SuperEspresso() {
         // Edit Layout invisible
         onView(allOf(isDisplayed(), withId(R.id.layout_today))).check(matches(isDisplayed()))
 
-
+        //TODO Test, dass nur PortrayMode möglich
         // All Entries Layout visible
         try {
             onView(allOf(isDisplayed(), withId(R.id.all_entries_view))).check(matches(not(isDisplayed())))
@@ -150,12 +147,14 @@ class LoadFilesTest : SuperEspresso() {
     }
 
     private fun switchToTodayAndLookIfSavedContentThere() {
+        Assert.assertThat(LoadFiles.getTextFromFile(appContext, TestTodayHelperEspresso.today()), `is`(manipulatedContentToday))
+
         onView(withText("ALL ENTRIES")).perform(click())
         onView(withText("Today")).perform(click())
-        //TODO scrollTO?
         onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
+        assertThat(activityRule.activity.editText_grateful1.selectionStart, `is`("Test".length)) // Look where cursor is
+
         onView(allOf(isDisplayed(), withId(R.id.editText_grateful2))).check(matches(withText("123")))
-        //TODO Cursor rechts von Wort
     }
 
 }

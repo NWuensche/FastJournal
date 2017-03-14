@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
                             1 -> {
                                 val save = findViewById(R.id.action_save_today) as ActionMenuItemView
                                 save.visibility = View.VISIBLE
+                                editText_grateful1.setSelection(editText_grateful1.text.length)
                             }
                         }
                     }
@@ -213,6 +214,7 @@ class MainActivity : AppCompatActivity() {
         if(firstTime) {
             LoadFiles.loadTodaysTextFromFileToView(this)
             firstTime = false
+            editText_grateful1.setSelection(editText_grateful1.text.length)
         }
     }
 
