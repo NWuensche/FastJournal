@@ -1,17 +1,14 @@
 package journal.app.niklas.a5minutejournal
 
 import android.content.Context
-import android.support.design.widget.TabLayout
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.NoMatchingViewException
-import android.support.test.espresso.action.ViewActions.*
+import android.support.test.espresso.action.ViewActions.click
+import android.support.test.espresso.action.ViewActions.typeText
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.*
-import android.view.KeyEvent
 import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
 import android.widget.ListView
-import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import org.hamcrest.CoreMatchers
 import org.hamcrest.CoreMatchers.*
