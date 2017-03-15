@@ -68,8 +68,6 @@ class LoadFilesTest : SuperEspresso() {
         Assert.assertThat(LoadFiles.getTextFromFile(appContext, TestTodayHelperEspresso.today()), `is`(contentToday))
         onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("Test")))
         assertThat(activityRule.activity.editText_grateful1.selectionStart, `is`("Test".length)) // Look where cursor is
-        val imm = appContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        assertThat(imm.isAcceptingText, `is`(true))
     }
 
     /**
