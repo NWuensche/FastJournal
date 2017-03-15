@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- TODO Icon als Mitmap aus 400x400 PNG -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="journal.app.niklas.a5minutejournal">
 
