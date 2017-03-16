@@ -7,7 +7,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "journal.app.niklas.a5minutejournal"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 25
         versionCode 3
         versionName "1.0.2"
@@ -29,11 +29,13 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    compile 'com.android.support:design:25.3.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.hamcrest:hamcrest-library:1.3'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
 }
 repositories {
     mavenCentral()

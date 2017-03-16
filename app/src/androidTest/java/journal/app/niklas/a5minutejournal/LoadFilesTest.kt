@@ -15,6 +15,10 @@ import org.hamcrest.CoreMatchers.*
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import android.support.test.InstrumentationRegistry
+import android.support.test.uiautomator.UiDevice
+
+
 
 
 /**
@@ -128,8 +132,19 @@ class LoadFilesTest : SuperEspresso() {
         onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("a")))
         onView(allOf(isDisplayed(), withId(R.id.editText_grateful3))).check(matches(withText("c")))
 
+        testThatOnOverviewTodayWontBeShown()
+
         scrollDown()// Necessary because listview doesnt build what is not on screen
         onView(allOf(isDisplayed(), withId(R.id.editText_better1))).check(matches(withText("p")))
+    }
+
+    private fun testThatOnOverviewTodayWontBeShown() {
+        val mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        mDevice.pressRecentApps()
+        Thread.sleep(500)
+        mDevice.pressRecentApps()
+        Thread.sleep(500)
+        onView(allOf(isDisplayed(), withId(R.id.editText_grateful1))).check(matches(withText("a")))
     }
 
     private fun checkIfEditTabOpened() {
@@ -145,7 +160,7 @@ class LoadFilesTest : SuperEspresso() {
     }
 
     private fun scrollDown() {
-        activityRule.activity.layout_today.scrollTo(0, 10 * activityRule.activity.editText_better2.bottom)
+        activityRule.activity.layout_today.scrollTo(0, 100 * activityRule.activity.editText_better2.bottom)
     }
 
     private fun switchToTodayAndLookIfSavedContentThere() {
