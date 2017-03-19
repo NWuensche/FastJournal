@@ -1,4 +1,4 @@
-package journal.app.niklas.a5minutejournal
+package journal.app.niklas.fastjournal
 
 import android.content.Context
 import android.support.test.InstrumentationRegistry

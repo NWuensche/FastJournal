@@ -1,4 +1,4 @@
-package journal.app.niklas.a5minutejournal
+package journal.app.niklas.fastjournal
 
 import android.support.design.widget.TabLayout
 import android.support.test.espresso.Espresso.onView

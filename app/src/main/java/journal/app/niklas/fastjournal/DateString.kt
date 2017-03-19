@@ -1,4 +1,4 @@
-package journal.app.niklas.a5minutejournal
+package journal.app.niklas.fastjournal
 
 /**
  * Created by nwuensche on 22.02.17.

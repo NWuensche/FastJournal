@@ -1,4 +1,4 @@
-package journal.app.niklas.a5minutejournal
+package journal.app.niklas.fastjournal
 
 import org.hamcrest.CoreMatchers.`is`
 import org.junit.Assert.assertArrayEquals

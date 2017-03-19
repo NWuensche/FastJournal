@@ -21,7 +21,7 @@
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
                 android:paddingTop="@dimen/activity_vertical_margin"
-                tools:context="journal.app.niklas.a5minutejournal.MainActivity$PlaceholderFragment"
+                tools:context="journal.app.niklas.fastjournal.MainActivity$PlaceholderFragment"
                 android:background="#ffffda">
 
                 <RelativeLayout
@@ -311,7 +311,7 @@
                         android:paddingLeft="@dimen/activity_horizontal_margin"
                         android:paddingRight="@dimen/activity_horizontal_margin"
                         android:paddingTop="@dimen/activity_vertical_margin"
-                        tools:context="journal.app.niklas.a5minutejournal.MainActivity$PlaceholderFragment"
+                        tools:context="journal.app.niklas.fastjournal.MainActivity$PlaceholderFragment"
                         android:background="#dedeba">
 
                 <RelativeLayout
@@ -504,7 +504,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="journal.app.niklas.a5minutejournal.MainActivity$PlaceholderFragment"
+        tools:context="journal.app.niklas.fastjournal.MainActivity$PlaceholderFragment"
         android:id="@+id/layout_all_entries"
         android:background="#ababab">
 
