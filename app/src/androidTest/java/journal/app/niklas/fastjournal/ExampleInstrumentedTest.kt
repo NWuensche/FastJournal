@@ -32,7 +32,7 @@ class ExampleInstrumentedTest : SuperEspresso() {
     @Test
     @Throws(Exception::class)
     fun useAppContext() {
-        assertEquals("journal.app.niklas.a5minutejournal", appContext.packageName)
+        assertEquals("journal.app.niklas.fastjournal", appContext.packageName)
     }
 
     @Test
