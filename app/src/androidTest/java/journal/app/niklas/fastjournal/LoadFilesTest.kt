@@ -1,12 +1,12 @@
 package journal.app.niklas.fastjournal
 
 import android.content.Context
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.NoMatchingViewException
-import android.support.test.espresso.action.ViewActions.click
-import android.support.test.espresso.action.ViewActions.typeText
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.NoMatchingViewException
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.ListView
 import kotlinx.android.synthetic.main.fragment_tabs.*
@@ -15,8 +15,8 @@ import org.hamcrest.CoreMatchers.*
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import android.support.test.InstrumentationRegistry
-import android.support.test.uiautomator.UiDevice
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 
 
 

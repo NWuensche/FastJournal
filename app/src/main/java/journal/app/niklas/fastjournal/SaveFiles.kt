@@ -2,7 +2,7 @@ package journal.app.niklas.fastjournal
 
 import android.app.Activity
 import android.content.Context
-import android.support.design.widget.Snackbar
+import com.google.android.material.snackbar.Snackbar
 import android.view.inputmethod.InputMethodManager
 import kotlinx.android.synthetic.main.fragment_tabs.*
 import java.io.FileOutputStream

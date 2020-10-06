@@ -1,6 +1,7 @@
 package journal.app.niklas.fastjournal
 
 import android.app.Activity
+import androidx.fragment.app.FragmentActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_tabs.*
 
@@ -9,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_tabs.*
  */
 object Design {
 
-    fun setEditTabTitle(activity: Activity) {
+    fun setEditTabTitle(activity: FragmentActivity) {
         val date: String = FileName.getCurrFileDateOrToday()
 
         if(date.toUpperCase().equals("TODAY")) {
