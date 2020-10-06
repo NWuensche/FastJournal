@@ -2,14 +2,14 @@ package journal.app.niklas.fastjournal
 
 import android.content.Context
 import android.os.Bundle
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.view.menu.ActionMenuItemView
-import android.support.v7.widget.Toolbar
+import com.google.android.material.tabs.TabLayout
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.menu.ActionMenuItemView
+import androidx.appcompat.widget.Toolbar
 import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
@@ -119,28 +119,28 @@ class MainActivity : AppCompatActivity() {
     class PlaceholderFragment : Fragment() {
 
         fun loadAllEntries() {
-            val files: List<String> = LoadFiles.getAllDatesDisplayName(activity)
-            all_entries_view.adapter = ArrayAdapter(activity, R.layout.entry_item, files)
+            val files: List<String> = LoadFiles.getAllDatesDisplayName(activity!!.applicationContext)
+            all_entries_view.adapter = ArrayAdapter(activity!!.applicationContext, R.layout.entry_item, files)
 
 
             all_entries_view.setOnItemClickListener { _, view, _, _ ->
                 val textView = view as TextView
                 val date: String = textView.text.toString()
 
-                LoadFiles.loadSomeDayTextFromFileToView(activity, date)
+                LoadFiles.loadSomeDayTextFromFileToView(activity!!.applicationContext, date)
 
                 FileName.setCurrentFileDate(date)
-                activity.container.currentItem++// Today as curr Tab
+                activity!!.container.currentItem++// Today as curr Tab
 
-                Design.setEditTabTitle(activity) // Tab Title
+                Design.setEditTabTitle(activity!!) // Tab Title
             }
         }
 
-        override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
-            val rootView = inflater!!.inflate(R.layout.fragment_tabs, container, false)
+            val rootView = inflater.inflate(R.layout.fragment_tabs, container, false)
 
-            when(arguments.getInt(ARG_SECTION_NUMBER)) {
+            when(arguments!!.getInt(ARG_SECTION_NUMBER)) {
                 1 -> {
                     rootView.layout_today.visibility = View.GONE
                     rootView.layout_all_entries.visibility = View.VISIBLE
